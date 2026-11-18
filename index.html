@@ -68,8 +68,8 @@ h2{font-size:34px;letter-spacing:-.03em;margin:0 0 6px;color:var(--head);font-we
 h3.group{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:56px 0 16px}
 
 /* stacked cards */
-.stack{display:grid;gap:30px}
-.case{--offset:88px;position:sticky;top:calc(var(--offset) + var(--i)*14px);display:grid;grid-template-columns:1.12fr .88fr;min-height:540px;overflow:hidden;border:1px solid #fffffff2;border-radius:28px;background:var(--c);box-shadow:0 25px 70px #46506826}
+.stack{display:grid;gap:30px;padding-bottom:24px}
+.case{--offset:88px;position:sticky;top:calc(var(--offset) + var(--i)*14px);display:grid;grid-template-columns:1.12fr .88fr;min-height:540px;overflow:hidden;border:1px solid #fffffff2;border-radius:28px;background:var(--c);box-shadow:0 14px 36px #4650681f}
 .media{position:relative;min-height:540px;padding:34px 34px 64px;display:grid;place-items:center;overflow:hidden;background:#ffffff40}
 .media:before{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:#ffffff61}
 .screen{position:relative;width:100%;overflow:hidden;border:8px solid #fffffff2;border-radius:20px;background:#fff;box-shadow:0 20px 45px #3e475e29;aspect-ratio:1.58}
@@ -303,7 +303,6 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
 
   <div class="work-top">
     <div><h3>More applied work</h3><p>Internship and university projects that show how I approach data, operational constraints and internal tools. Select a project to see the evidence behind it.</p></div>
-    <div class="filters" role="group" aria-label="Filter applied projects"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="ai">AI &amp; data</button><button class="filter" data-filter="product">Product</button><button class="filter" data-filter="operations">Operations</button></div>
   </div>
   <div class="project-deck">
     <article class="project-card" data-type="ai operations">
@@ -311,7 +310,7 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
       <div class="project-detail"><div class="detail-block"><b>Problem</b><p>A regional health service needed a clearer view of future patient demand for capacity planning.</p></div><div class="detail-block"><b>My contribution</b><p>Prepared monthly attendance data and built a forecasting prototype around the operational time series.</p></div><div class="detail-block"><b>Evidence</b><p>The implementation is confidential; the workflow and technical scope are described here without client data.</p><div class="tags"><span>Python</span><span>Forecasting</span></div></div></div>
     </article>
     <article class="project-card" data-type="operations">
-      <button class="project-summary" aria-expanded="false"><span class="project-date">Sep 2026</span><span class="project-title">Healthcare workforce rostering</span><span class="project-teaser">A workable draft schedule instead of a blank grid.</span><span class="project-status">Company product · private</span><span class="project-plus">+</span></button>
+      <button class="project-summary" aria-expanded="false"><span class="project-date">Sep 2026</span><span class="project-title">Healthcare workforce rostering</span><span class="project-teaser">A workable draft schedule instead of a blank grid.</span><span class="project-status">Client work · private</span><span class="project-plus">+</span></button>
       <div class="project-detail"><div class="detail-block"><b>Problem</b><p>Hospital planners must balance staffing demand with practical working rules and service constraints.</p></div><div class="detail-block"><b>My contribution</b><p>Translated demand, staffing constraints and working rules into a draft roster generator for hospital teams.</p></div><div class="detail-block"><b>Evidence</b><p>The project demonstrates constraint modelling and workflow design; client details remain private.</p><div class="tags"><span>Python</span><span>Scheduling</span></div></div></div>
     </article>
     <article class="project-card" data-type="ai">
@@ -319,8 +318,8 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
       <div class="project-detail"><div class="detail-block"><b>Data</b><p>A public Kaggle dataset of 53,940 diamond records, so no private or client data is involved.</p></div><div class="detail-block"><b>My contribution</b><p>Benchmarked Ridge, Random Forest, MLP and XGBoost using MAE, RMSE and R².</p></div><div class="detail-block"><b>Evidence</b><p>XGBoost performed best on held-out data: RMSE 538.5 and R² 0.982.</p><div class="tags"><span>scikit-learn</span><span>XGBoost</span></div></div></div>
     </article>
     <article class="project-card" data-type="ai">
-      <button class="project-summary" aria-expanded="false"><span class="project-date">Mar–Nov 2026</span><span class="project-title">Concept to Response</span><span class="project-teaser">An industry-partnered baseline for survey-response prediction.</span><span class="project-status">University project</span><span class="project-plus">+</span></button>
-      <div class="project-detail"><div class="detail-block"><b>Problem</b><p>Explore whether survey responses can be predicted across population segments from question and segment information.</p></div><div class="detail-block"><b>My contribution</b><p>Prepared question and segment features and built a Naive Bayes baseline for later NLP approaches.</p></div><div class="detail-block"><b>Context</b><p>Industry-partnered ANU project with the Social Research Centre.</p><div class="tags"><span>Python</span><span>pandas</span><span>NLP</span></div></div></div>
+      <button class="project-summary" aria-expanded="false"><span class="project-date">Mar–Nov 2026</span><span class="project-title">Concept to Response</span><span class="project-teaser">A survey-response prediction baseline built for an industry stakeholder.</span><span class="project-status">Final-year project</span><span class="project-plus">+</span></button>
+      <div class="project-detail"><div class="detail-block"><b>Problem</b><p>Explore whether survey responses can be predicted across population segments from question and segment information.</p></div><div class="detail-block"><b>My contribution</b><p>Prepared question and segment features and built a Naive Bayes baseline for later NLP approaches.</p></div><div class="detail-block"><b>Context</b><p>Two-semester final-year project course at ANU, delivered for the Social Research Centre as the industry stakeholder.</p><div class="tags"><span>Python</span><span>pandas</span><span>NLP</span></div></div></div>
     </article>
     <article class="project-card" data-type="product ai">
       <button class="project-summary" aria-expanded="false"><span class="project-date">Jun–Aug 2025</span><span class="project-title">Document comparison tool</span><span class="project-teaser">Review differences visually, then normalise messy metadata.</span><span class="project-status">Internship · private</span><span class="project-plus">+</span></button>

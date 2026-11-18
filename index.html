@@ -114,6 +114,32 @@ h3.group{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(-
 .rows .tags{padding-top:0}
 .rows .tags span{background:var(--chip);border:0}
 
+/* applied work — filterable, expandable evidence */
+.work-top{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:70px 0 18px}
+.work-top h3{margin:0;color:var(--head);font-size:28px;font-weight:520;letter-spacing:-.03em}
+.work-top p{max-width:48ch;margin:5px 0 0;color:var(--muted);font-size:14px}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filter{border:1px solid var(--line);border-radius:99px;background:#fff;padding:8px 13px;cursor:pointer;color:var(--muted);font-size:12px;transition:.2s}
+.filter:hover{transform:translateY(-2px);border-color:#c9c4f0}
+.filter.active{background:var(--head);border-color:var(--head);color:#fff}
+.project-deck{display:grid;gap:10px}
+.project-card{overflow:hidden;border:1px solid var(--line);border-radius:19px;background:#fff;transition:.25s}
+.project-card:hover{border-color:#cbc5ee;box-shadow:0 12px 32px #46506812}
+.project-card.is-hidden{display:none}
+.project-summary{width:100%;display:grid;grid-template-columns:130px minmax(220px,1fr) minmax(250px,1.2fr) auto 30px;gap:18px;align-items:center;padding:20px;border:0;background:transparent;text-align:left;cursor:pointer}
+.project-date{color:var(--accent-2);font:500 11px/1.4 var(--mono);text-transform:uppercase}
+.project-title{color:var(--head);font-size:18px;font-weight:600}
+.project-teaser{color:var(--muted);font-size:14px}
+.project-status{padding:5px 9px;border-radius:99px;background:#f2efe8;color:#747b86;font-size:11px;white-space:nowrap}
+.project-plus{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#f3f1ff;color:#7169b1;font-size:18px;transition:.25s}
+.project-summary[aria-expanded="true"] .project-plus{transform:rotate(45deg);background:var(--lav)}
+.project-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-height:0;overflow:hidden;padding:0 20px;opacity:0;transition:max-height .35s ease,opacity .25s,padding .35s}
+.project-card.open .project-detail{max-height:360px;padding:0 20px 20px;opacity:1}
+.detail-block{padding:17px;border-radius:14px;background:#faf9f6}
+.detail-block b{display:block;margin-bottom:7px;color:#8b829c;font:500 10px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.detail-block p{margin:0;color:#68717d;font-size:13px;line-height:1.55}
+.detail-block .tags{padding-top:8px}
+
 /* experience */
 .timeline{border-left:2px solid var(--line);padding-left:24px;display:grid;gap:22px}
 .timeline .t{position:relative}
@@ -140,6 +166,9 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
   .media{padding:20px 18px 58px}
   .copy{padding:28px 22px}
   .row{grid-template-columns:1fr;gap:6px}
+  .work-top{align-items:flex-start;flex-direction:column}
+  .project-summary{grid-template-columns:1fr auto}.project-date,.project-teaser{grid-column:1/-1}.project-status{grid-column:1}.project-plus{grid-column:2;grid-row:1}
+  .project-detail{grid-template-columns:1fr}.project-card.open .project-detail{max-height:720px}
   nav ul{gap:14px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.blob,.float,.track{animation:none}*,*:before,*:after{transition:none!important}}
@@ -208,7 +237,7 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
         <div class="gallery"><button class="active">Mobile</button><button>Web</button></div>
       </div>
       <div class="copy">
-        <span class="kicker">02 · Cross-platform app · Aug 2026</span>
+        <span class="kicker">02 · Cross-platform app · Dec 2025 – Aug 2026</span>
         <h3>Animal Crossing Companion</h3>
         <p>A pastel companion app for browsing villagers, saving a dream island and exploring museum collections.</p>
         <div class="fact"><b>Build</b><span>React Native and Expo Router, one codebase for iOS, Android and web.</span></div>
@@ -272,20 +301,38 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
 
   </div>
 
-  <h3 class="group">Internship &amp; university projects</h3>
-  <div class="rows">
-    <div class="row"><div class="meta">Oct 2026</div><div><h3>Hospital demand forecasting</h3><p>Cleaned monthly attendance data and built forecasts of patient demand to support capacity planning for a regional health service.</p><div class="tags"><span>Python</span><span>Forecasting</span></div></div><div class="lab">Internal project</div></div>
-    <div class="row"><div class="meta">Sep 2026</div><div><h3>Healthcare workforce rostering</h3><p>Prototype that turns staffing demand and working rules into a draft roster for hospital services, so planners start from a workable schedule instead of a blank grid.</p><div class="tags"><span>Python</span><span>Scheduling</span></div></div><div class="lab">Internal project</div></div>
-    <div class="row"><div class="meta">Sep 2026</div><div><h3>Diamond price regression</h3><p>Ridge, XGBoost, Random Forest and MLP compared on 53,940 records by MAE, RMSE and R². XGBoost led with RMSE 538.5 and R² 0.982 on a held-out test set.</p><div class="tags"><span>Python</span><span>scikit-learn</span><span>XGBoost</span></div></div><div class="lab">Repo not public yet</div></div>
-    <div class="row"><div class="meta">Mar – Nov 2026</div><div><h3>Concept to Response</h3><p>Industry-partnered ML project with the Social Research Centre predicting survey responses across population segments. Prepared question and segment features and built a Naive Bayes baseline for later NLP approaches.</p><div class="tags"><span>Python</span><span>pandas</span><span>NLP</span></div></div><div class="lab">University project</div></div>
-    <div class="row"><div class="meta">Jun – Aug 2025</div><div><h3>Document comparison tool</h3><p>Vue 3 frontend for Word/PDF text extraction, difference detection and visual highlighting, plus a Python pipeline that standardises institution names via an LLM API.</p><div class="tags"><span>Vue 3</span><span>Python</span><span>LLM API</span></div></div><div class="lab">Internal project</div></div>
+  <div class="work-top">
+    <div><h3>More applied work</h3><p>Internship and university projects that show how I approach data, operational constraints and internal tools. Select a project to see the evidence behind it.</p></div>
+    <div class="filters" role="group" aria-label="Filter applied projects"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="ai">AI &amp; data</button><button class="filter" data-filter="product">Product</button><button class="filter" data-filter="operations">Operations</button></div>
+  </div>
+  <div class="project-deck">
+    <article class="project-card" data-type="ai operations">
+      <button class="project-summary" aria-expanded="false"><span class="project-date">Oct 2026</span><span class="project-title">Hospital demand forecasting</span><span class="project-teaser">From irregular attendance data to a planning-ready forecast.</span><span class="project-status">Client work · private</span><span class="project-plus">+</span></button>
+      <div class="project-detail"><div class="detail-block"><b>Problem</b><p>A regional health service needed a clearer view of future patient demand for capacity planning.</p></div><div class="detail-block"><b>My contribution</b><p>Prepared monthly attendance data and built a forecasting prototype around the operational time series.</p></div><div class="detail-block"><b>Evidence</b><p>The implementation is confidential; the workflow and technical scope are described here without client data.</p><div class="tags"><span>Python</span><span>Forecasting</span></div></div></div>
+    </article>
+    <article class="project-card" data-type="operations">
+      <button class="project-summary" aria-expanded="false"><span class="project-date">Sep 2026</span><span class="project-title">Healthcare workforce rostering</span><span class="project-teaser">A workable draft schedule instead of a blank grid.</span><span class="project-status">Company product · private</span><span class="project-plus">+</span></button>
+      <div class="project-detail"><div class="detail-block"><b>Problem</b><p>Hospital planners must balance staffing demand with practical working rules and service constraints.</p></div><div class="detail-block"><b>My contribution</b><p>Translated demand, staffing constraints and working rules into a draft roster generator for hospital teams.</p></div><div class="detail-block"><b>Evidence</b><p>The project demonstrates constraint modelling and workflow design; client details remain private.</p><div class="tags"><span>Python</span><span>Scheduling</span></div></div></div>
+    </article>
+    <article class="project-card" data-type="ai">
+      <button class="project-summary" aria-expanded="false"><span class="project-date">Sep 2026</span><span class="project-title">Diamond price regression</span><span class="project-teaser">Four model families, one consistent held-out evaluation.</span><span class="project-status">Kaggle dataset</span><span class="project-plus">+</span></button>
+      <div class="project-detail"><div class="detail-block"><b>Data</b><p>A public Kaggle dataset of 53,940 diamond records, so no private or client data is involved.</p></div><div class="detail-block"><b>My contribution</b><p>Benchmarked Ridge, Random Forest, MLP and XGBoost using MAE, RMSE and R².</p></div><div class="detail-block"><b>Evidence</b><p>XGBoost performed best on held-out data: RMSE 538.5 and R² 0.982.</p><div class="tags"><span>scikit-learn</span><span>XGBoost</span></div></div></div>
+    </article>
+    <article class="project-card" data-type="ai">
+      <button class="project-summary" aria-expanded="false"><span class="project-date">Mar–Nov 2026</span><span class="project-title">Concept to Response</span><span class="project-teaser">An industry-partnered baseline for survey-response prediction.</span><span class="project-status">University project</span><span class="project-plus">+</span></button>
+      <div class="project-detail"><div class="detail-block"><b>Problem</b><p>Explore whether survey responses can be predicted across population segments from question and segment information.</p></div><div class="detail-block"><b>My contribution</b><p>Prepared question and segment features and built a Naive Bayes baseline for later NLP approaches.</p></div><div class="detail-block"><b>Context</b><p>Industry-partnered ANU project with the Social Research Centre.</p><div class="tags"><span>Python</span><span>pandas</span><span>NLP</span></div></div></div>
+    </article>
+    <article class="project-card" data-type="product ai">
+      <button class="project-summary" aria-expanded="false"><span class="project-date">Jun–Aug 2025</span><span class="project-title">Document comparison tool</span><span class="project-teaser">Review differences visually, then normalise messy metadata.</span><span class="project-status">Internship · private</span><span class="project-plus">+</span></button>
+      <div class="project-detail"><div class="detail-block"><b>Product</b><p>Built a Vue 3 interface for Word/PDF extraction, difference detection and visual highlighting.</p></div><div class="detail-block"><b>Data workflow</b><p>Paired the interface with a Python pipeline that standardised institution names through an LLM API.</p></div><div class="detail-block"><b>Evidence</b><p>Internal internship work; the public description focuses on my responsibilities and architecture.</p><div class="tags"><span>Vue 3</span><span>Python</span><span>LLM API</span></div></div></div>
+    </article>
   </div>
 </div></section>
 
 <section id="experience"><div class="wrap">
   <h2>Experience</h2><p class="sub">Where the work above came from.</p>
   <div class="timeline">
-    <div class="t"><small>Aug 2026 – present</small><h3>Neural Craft Labs — AI &amp; Engineering Intern</h3><p>RAG and regression prototypes, a Next.js site for a computer-vision product, and healthcare workforce rostering and demand-forecasting tools for hospital services.</p></div>
+    <div class="t"><small>Aug 2026 – Nov 2026</small><h3>Neural Craft Labs — AI &amp; Engineering Intern</h3><p>RAG and regression prototypes, a Next.js site for a computer-vision product, and healthcare workforce rostering and demand-forecasting tools for hospital services.</p></div>
     <div class="t"><small>May 2026 – Aug 2026</small><h3>Web Culture — Web Development Intern</h3><p>Maintained about 14 client WordPress sites and rebuilt pages in Elementor.</p></div>
     <div class="t"><small>Jun 2025 – Aug 2025</small><h3>Computer Network Information Center, CAS — AI &amp; Data Analysis Intern</h3><p>Frontend and data-cleaning work for document review.</p></div>
     <div class="t"><small>Jul 2024 – Nov 2026</small><h3>Australian National University — Master of Computing</h3></div>
@@ -312,6 +359,24 @@ document.querySelectorAll('[data-gallery]').forEach(function(g){
     panes.forEach(function(p,i){p.classList.toggle('on',i===n)});
     btns.forEach(function(x,i){x.classList.toggle('active',i===n)});
   }});
+});
+document.querySelectorAll('.project-summary').forEach(function(button){
+  button.nextElementSibling.setAttribute('aria-hidden','true');
+  button.onclick=function(){
+    var card=button.closest('.project-card'),open=!card.classList.contains('open');
+    card.classList.toggle('open',open);
+    button.setAttribute('aria-expanded',String(open));
+    button.nextElementSibling.setAttribute('aria-hidden',String(!open));
+  };
+});
+document.querySelectorAll('.filter').forEach(function(button){
+  button.onclick=function(){
+    var filter=button.dataset.filter;
+    document.querySelectorAll('.filter').forEach(function(item){item.classList.toggle('active',item===button)});
+    document.querySelectorAll('.project-card').forEach(function(card){
+      card.classList.toggle('is-hidden',filter!=='all'&&!card.dataset.type.split(' ').includes(filter));
+    });
+  };
 });
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.cshot').forEach(function(c){
   var base=+c.dataset.tilt;

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xinran (Rita) Tian — Portfolio</title>
+<meta name="description" content="Master of Computing student at ANU. Machine learning, RAG systems and web development.">
+<style>
+:root{
+  --bg:#fffdf9; --surface:#fffdf9; --ink:#59616e; --head:#2f3744; --muted:#7c8491; --line:#e6e1d6;
+  --accent:#7a8f7d; --accent-2:#c98f7b; --chip:#efeae0;
+  --lav:#e2ddff; --sky:#daefff; --yellow:#fff0ad;
+  --shadow:0 22px 55px rgba(70,79,104,.12);
+  --font:"Avenir Next","SF Pro Rounded","Nunito Sans",ui-rounded,-apple-system,BlinkMacSystemFont,"Inter","PingFang SC",sans-serif;
+  --mono:"SFMono-Regular",Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;color-scheme:light}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #ff9076;outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(18px);background:rgba(255,253,249,.84);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+nav b{font-weight:650;letter-spacing:-.01em;color:var(--head)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}
+nav a{text-decoration:none}nav a:hover{color:var(--head)}
+
+/* hero */
+.hero{overflow:hidden;padding:56px 0 40px;background:radial-gradient(circle at 80% 18%,#f0edff,transparent 34%),radial-gradient(circle at 18% 78%,#e9fff3,transparent 30%)}
+.hero-grid{display:grid;grid-template-columns:.93fr 1.07fr;gap:48px;align-items:center;min-height:600px}
+.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid var(--line);border-radius:99px;background:#ffffffc4;color:var(--muted);font-size:12px}
+.hero h1{max-width:10ch;margin:22px 0 20px;color:var(--head);font-size:clamp(48px,6.4vw,88px);font-weight:500;line-height:.98;letter-spacing:-.06em}
+.hero h1 span{position:relative;white-space:nowrap;z-index:0}
+.hero h1 span:after{content:"";position:absolute;z-index:-1;left:-3%;right:-3%;bottom:4%;height:28%;border-radius:20px;background:var(--yellow);transform:rotate(-1.5deg)}
+.dek{max-width:46ch;margin:0;color:var(--muted);font-size:18px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 18px;border:1px solid var(--line);border-radius:14px;background:#fff;text-decoration:none;font-size:14px;font-weight:550;box-shadow:0 7px 16px #4650680f;transition:.2s}
+.btn.primary{background:var(--head);color:#fff;border-color:var(--head)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px #46506822}
+.note{margin-top:22px;color:#99a0ab;font-size:12px}
+
+.collage{position:relative;min-height:560px;perspective:1000px}
+.blob{position:absolute;inset:8% 2% 5% 7%;border-radius:43% 57% 48% 52%/55% 42% 58% 45%;background:linear-gradient(145deg,var(--sky),var(--lav));animation:blob 11s ease-in-out infinite alternate}
+.cshot{position:absolute;overflow:hidden;margin:0;border:7px solid #fff;border-radius:22px;background:#fff;box-shadow:var(--shadow);transition:transform .18s ease-out}
+.cshot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.cshot.one{width:78%;aspect-ratio:1.6;left:1%;top:7%;transform:rotate(-4deg)}
+.cshot.two{width:69%;aspect-ratio:1.6;right:-1%;bottom:4%;transform:rotate(4deg)}
+.cshot.three{width:25%;aspect-ratio:.5;right:5%;top:5%;transform:rotate(7deg)}
+.cshot figcaption{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:99px;background:#ffffffe8;backdrop-filter:blur(8px);color:var(--head);font-size:11px;box-shadow:0 4px 12px #0001}
+.float{position:absolute;z-index:3;padding:9px 13px;border-radius:99px;background:#fff;font-size:12px;box-shadow:0 10px 25px #46506820;animation:float 4s ease-in-out infinite}
+.float.a{left:0;bottom:17%}
+.float.b{right:0;top:44%;animation-delay:-2s}
+@keyframes float{50%{transform:translateY(-9px)}}
+@keyframes blob{to{border-radius:54% 46% 62% 38%/44% 60% 40% 56%;transform:rotate(4deg)}}
+
+section{padding:64px 0}
+h2{font-size:34px;letter-spacing:-.03em;margin:0 0 6px;color:var(--head);font-weight:560}
+.sub{color:var(--muted);margin:0 0 36px}
+h3.group{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:56px 0 16px}
+
+/* stacked cards */
+.stack{display:grid;gap:30px}
+.case{--offset:88px;position:sticky;top:calc(var(--offset) + var(--i)*14px);display:grid;grid-template-columns:1.12fr .88fr;min-height:540px;overflow:hidden;border:1px solid #fffffff2;border-radius:28px;background:var(--c);box-shadow:0 25px 70px #46506826}
+.media{position:relative;min-height:540px;padding:34px 34px 64px;display:grid;place-items:center;overflow:hidden;background:#ffffff40}
+.media:before{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:#ffffff61}
+.screen{position:relative;width:100%;overflow:hidden;border:8px solid #fffffff2;border-radius:20px;background:#fff;box-shadow:0 20px 45px #3e475e29;aspect-ratio:1.58}
+.screen.wide{aspect-ratio:1.86}
+.screen.rag{aspect-ratio:2.2}
+.pane{position:absolute;inset:0;display:none}
+.pane.on{display:block}
+.pane img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.pane.phones.on{display:flex;align-items:center;justify-content:center;gap:16px;padding:16px;background:linear-gradient(135deg,#e9efe6,#f3e6df)}
+.pane.phones img{width:auto;height:100%;border-radius:16px;border:5px solid #1d1d1b;box-shadow:0 8px 24px rgba(0,0,0,.18);object-fit:cover;object-position:top}
+.pane.flowpane{padding:14px 16px;background:#fff;overflow:auto}
+.gallery{position:absolute;z-index:3;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:6px;padding:5px;border-radius:99px;background:#ffffffe8;box-shadow:0 8px 22px #3e475e1f;backdrop-filter:blur(8px)}
+.gallery button{border:0;border-radius:99px;background:transparent;padding:7px 14px;cursor:pointer;color:var(--muted);font-size:12px}
+.gallery button.active{background:var(--head);color:#fff}
+.copy{padding:42px 40px;display:flex;flex-direction:column}
+.kicker{color:#777f8c;font:500 11px/1.3 var(--mono);text-transform:uppercase}
+.case h3{margin:16px 0 12px;color:var(--head);font-size:clamp(34px,3.8vw,52px);font-weight:500;line-height:1;letter-spacing:-.05em}
+.case p{margin:0;max-width:45ch;color:#5d6673;font-size:15px}
+.fact{display:grid;grid-template-columns:74px 1fr;gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid #565e6c2e;font-size:14px}
+.fact b{color:#656d79;font:500 10px/1.7 var(--mono);text-transform:uppercase}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 0;padding-top:22px}
+.tags span{padding:5px 10px;border:1px solid #565e6c2e;border-radius:99px;background:#ffffff40;font-size:11px}
+.case-links{display:flex;gap:10px;margin-top:18px}
+.case-links a{display:inline-flex;align-items:center;min-height:42px;padding:0 20px;border-radius:12px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--head);transition:.2s}
+.case-links a.live{background:var(--head);color:#fff}
+.case-links a.code{background:#ffffffb0;color:var(--head)}
+.case-links a:hover{transform:translateY(-2px);box-shadow:0 8px 18px #3e475e22}
+
+.lane{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.lane-t{width:100%;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2);font-family:var(--mono)}
+.node{background:var(--chip);border-radius:8px;padding:4px 9px;font-size:12px;color:var(--head)}
+.node.hi{background:var(--accent);color:#fff}
+.lane i{font-style:normal;color:var(--muted)}
+
+/* rows */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:start;padding:20px 0;border-bottom:1px solid var(--line)}
+.row .meta{padding-top:4px;font-size:12px;color:var(--accent-2);letter-spacing:.06em;text-transform:uppercase}
+.row h3{margin:0 0 4px;font-size:18px;color:var(--head)}
+.row p{margin:0 0 8px;color:var(--muted);font-size:15px}
+.row .lab{font-size:13px;color:var(--muted);padding-top:3px;white-space:nowrap}
+.rows .tags{padding-top:0}
+.rows .tags span{background:var(--chip);border:0}
+
+/* experience */
+.timeline{border-left:2px solid var(--line);padding-left:24px;display:grid;gap:22px}
+.timeline .t{position:relative}
+.timeline .t::before{content:"";position:absolute;left:-31px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.timeline small{color:var(--muted)}
+.timeline h3{margin:2px 0 2px;font-size:18px;color:var(--head)}
+.timeline p{margin:0;color:var(--muted);font-size:15px}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.skills div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.skills h4{margin:0 0 8px;font-size:14px;color:var(--accent)}
+.skills p{margin:0;font-size:14px;color:var(--muted)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+@media(max-width:930px){
+  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .collage{min-height:480px}
+  .case{position:relative;top:auto;grid-template-columns:1fr}
+  .media{min-height:380px}
+}
+@media(max-width:650px){
+  .float{display:none}
+  .cshot.three{display:none}
+  .collage{min-height:380px}
+  .media{padding:20px 18px 58px}
+  .copy{padding:28px 22px}
+  .row{grid-template-columns:1fr;gap:6px}
+  nav ul{gap:14px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.blob,.float{animation:none}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Rita Tian</b>
+<ul><li><a href="#work">Work</a></li><li><a href="#experience">Experience</a></li><li><a href="#skills">Skills</a></li><li><a href="https://github.com/hahnalai8n1">GitHub</a></li></ul></div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">Canberra · ANU Master of Computing</span>
+    <h1>I make useful ideas feel <span>simple.</span></h1>
+    <p class="dek">I’m Xinran “Rita” Tian. I build web products and practical AI systems, from local RAG experiments to a nonprofit onboarding portal.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:xinran.tian.au@gmail.com">xinran.tian.au@gmail.com</a>
+      <a class="btn" href="https://github.com/hahnalai8n1">GitHub: hahnalai8n1</a>
+      <a class="btn" href="#work">See my work</a>
+    </div>
+    <p class="note">Selected work 2025–2026</p>
+  </div>
+  <div class="collage">
+    <div class="blob"></div>
+    <figure class="cshot one" data-tilt="-4"><img src="img/pawpal-form.png" alt="PawPal onboarding screen"><figcaption>PawPal · shipped product</figcaption></figure>
+    <figure class="cshot two" data-tilt="4"><img src="img/rent-radar.png" alt="Canberra Rent Radar screen"><figcaption>Rent Radar · recommendation tool</figcaption></figure>
+    <figure class="cshot three" data-tilt="7"><img src="img/ac-island.webp" alt="Animal Crossing My Island mobile screen"><figcaption>Mobile</figcaption></figure>
+    <span class="float a">✨ UX + engineering</span>
+    <span class="float b">5 featured builds</span>
+  </div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <h2>Selected work</h2>
+  <p class="sub">Use the buttons under each screenshot to switch views.</p>
+
+  <div class="stack">
+
+    <article class="case" style="--i:0;--c:#fff0b7">
+      <div class="media" data-gallery>
+        <div class="screen">
+          <div class="pane on" style="background:#fff3de"><img src="img/pawpal-form.png" alt="PawPal application form"></div>
+          <div class="pane" style="background:#fff3de"><img src="img/pawpal-quiz.webp" alt="PawPal interactive OHS quiz"></div>
+        </div>
+        <div class="gallery"><button class="active">Form</button><button>Quiz</button></div>
+      </div>
+      <div class="copy">
+        <span class="kicker">01 · Hackathon · Sep 2026</span>
+        <h3>PawPal</h3>
+        <p>A self-service onboarding portal for Dogs Canberra’s Community Walking Program, replacing an email-heavy sign-up with one guided flow.</p>
+        <div class="fact"><b>My role</b><span>Sole developer in a three-person team.</span></div>
+        <div class="fact"><b>Outcome</b><span>Seven steps: registration, an 11-question OHS quiz, ID upload, e-signature and a member number, stored in Google Sheets and Drive.</span></div>
+        <div class="fact"><b>Decision</b><span>A Gemini assistant was prototyped, then left out of the public release over routing-reliability risks in a safety-sensitive workflow.</span></div>
+        <div class="tags"><span>React</span><span>Vite</span><span>Tailwind</span><span>Framer Motion</span><span>Apps Script</span></div>
+        <div class="case-links"><a class="live" href="https://dogscbr-firstwalk-pawpal.pages.dev">Live site</a><a class="code" href="https://github.com/hahnalai8n1/dogscbr-firstwalk-pawpal">Code</a></div>
+      </div>
+    </article>
+
+    <article class="case" style="--i:1;--c:#d9f4e5">
+      <div class="media" data-gallery>
+        <div class="screen wide">
+          <div class="pane phones on"><img src="img/ac-home.webp" alt="Home screen: villagers and museum"><img src="img/ac-island.webp" alt="My Island screen"></div>
+          <div class="pane" style="background:#fff"><img src="img/ac-web.webp" alt="Web version of the app"></div>
+        </div>
+        <div class="gallery"><button class="active">Mobile</button><button>Web</button></div>
+      </div>
+      <div class="copy">
+        <span class="kicker">02 · Cross-platform app · Aug 2026</span>
+        <h3>Animal Crossing Companion</h3>
+        <p>A pastel companion app for browsing villagers, saving a dream island and exploring museum collections.</p>
+        <div class="fact"><b>Build</b><span>React Native and Expo Router, one codebase for iOS, Android and web.</span></div>
+        <div class="fact"><b>Details</b><span>Real-time villager search, saved residents that persist between sessions, and fish, sea creature, bug and art collections from the Nookipedia API.</span></div>
+        <div class="tags"><span>React Native</span><span>Expo</span><span>TypeScript</span><span>Vercel</span></div>
+        <div class="case-links"><a class="live" href="https://animal-crossing-app.vercel.app">Live site</a><a class="code" href="https://github.com/hahnalai8n1/animal-crossing-app">Code</a></div>
+      </div>
+    </article>
+
+    <article class="case" style="--i:2;--c:#dceeff">
+      <div class="media">
+        <div class="screen"><div class="pane on" style="background:#f8fafc"><img src="img/rent-radar.png" alt="Canberra Rent Radar recommendations"></div></div>
+      </div>
+      <div class="copy">
+        <span class="kicker">03 · Recommendation tool · Apr–May 2026</span>
+        <h3>Canberra Rent Radar</h3>
+        <p>A suburb finder that turns budget, commute and lifestyle preferences into ranked recommendations.</p>
+        <div class="fact"><b>Build</b><span>A personalised relevance score in TypeScript, Google Maps commute data and a headless WordPress CMS through WPGraphQL.</span></div>
+        <div class="fact"><b>Why</b><span>Each match shows the reasons behind its score: budget fit, commute and transport.</span></div>
+        <div class="tags"><span>Next.js</span><span>TypeScript</span><span>WPGraphQL</span><span>Google Maps API</span></div>
+        <div class="case-links"><a class="live" href="https://canberra-rent-frontend.vercel.app">Live site</a><a class="code" href="https://github.com/hahnalai8n1/canberra-rent-radar">Code</a></div>
+      </div>
+    </article>
+
+    <article class="case" style="--i:3;--c:#e8e3ff">
+      <div class="media">
+        <div class="screen wide"><div class="pane on" style="background:#fff"><img src="img/rag-demo.webp" alt="RAG Architecture Demo comparing chunking strategies"></div></div>
+      </div>
+      <div class="copy">
+        <span class="kicker">04 · RAG experiment · Sep 2026</span>
+        <h3>RAG Architecture Demo</h3>
+        <p>A local Streamlit lab that shows the architecture choices usually hidden behind a chat box.</p>
+        <div class="fact"><b>Compare</b><span>Three chunking strategies and three retrieval methods (BM25, Chroma vector, hybrid reciprocal-rank fusion) on the same documents and question.</span></div>
+        <div class="fact"><b>Result</b><span>Disk-backed caches cut repeat generation from about 1–3 s to 1 ms.</span></div>
+        <div class="tags"><span>Python</span><span>Ollama</span><span>Chroma</span><span>Streamlit</span></div>
+        <div class="case-links"><a class="code" href="https://github.com/hahnalai8n1/rag-architecture-demo">Code</a></div>
+      </div>
+    </article>
+
+    <article class="case" style="--i:4;--c:#ffdcd2">
+      <div class="media" data-gallery>
+        <div class="screen rag">
+          <div class="pane on" style="background:#fff"><img src="img/rag-light.png" alt="Terminal output of the local RAG assistant"></div>
+          <div class="pane flowpane">
+            <div class="lane"><span class="lane-t">Index (once)</span><div class="node">Villager JSON</div><i>→</i><div class="node">One chunk per villager</div><i>→</i><div class="node">EmbeddingGemma</div><i>→</i><div class="node">embeddings.npy</div></div>
+            <div class="lane"><span class="lane-t">Query</span><div class="node">Question</div><i>→</i><div class="node">EmbeddingGemma</div><i>→</i><div class="node">Cosine similarity</div><i>→</i><div class="node">Top 5</div><i>→</i><div class="node">Prompt</div><i>→</i><div class="node hi">Gemma 3 1B</div></div>
+          </div>
+        </div>
+        <div class="gallery"><button class="active">Demo</button><button>How it works</button></div>
+      </div>
+      <div class="copy">
+        <span class="kicker">05 · Local AI · Aug 2026</span>
+        <h3>Local Animal Crossing RAG</h3>
+        <p>A retrieval assistant built without LangChain or cloud APIs: local embeddings, NumPy similarity search and a local language model.</p>
+        <div class="fact"><b>Testing</b><span>Factual, multilingual, multi-record and out-of-dataset questions, with limitations written up in the repo.</span></div>
+        <div class="fact"><b>Privacy</b><span>The whole pipeline runs locally through Ollama.</span></div>
+        <div class="tags"><span>Python</span><span>Ollama</span><span>Gemma 3</span><span>NumPy</span></div>
+        <div class="case-links"><a class="code" href="https://github.com/hahnalai8n1/animal-crossing-ollama-rag">Code</a></div>
+      </div>
+    </article>
+
+  </div>
+
+  <h3 class="group">Internship &amp; university projects</h3>
+  <div class="rows">
+    <div class="row"><div class="meta">Oct 2026</div><div><h3>Hospital demand forecasting</h3><p>Cleaned monthly attendance data and built forecasts of patient demand to support capacity planning for a regional health service.</p><div class="tags"><span>Python</span><span>Forecasting</span></div></div><div class="lab">Internal project</div></div>
+    <div class="row"><div class="meta">Sep 2026</div><div><h3>Healthcare workforce rostering</h3><p>Prototype that turns staffing demand and working rules into a draft roster for hospital services, so planners start from a workable schedule instead of a blank grid.</p><div class="tags"><span>Python</span><span>Scheduling</span></div></div><div class="lab">Internal project</div></div>
+    <div class="row"><div class="meta">Sep 2026</div><div><h3>Diamond price regression</h3><p>Ridge, XGBoost, Random Forest and MLP compared on 53,940 records by MAE, RMSE and R². XGBoost led with RMSE 538.5 and R² 0.982 on a held-out test set.</p><div class="tags"><span>Python</span><span>scikit-learn</span><span>XGBoost</span></div></div><div class="lab">Repo not public yet</div></div>
+    <div class="row"><div class="meta">Mar – Nov 2026</div><div><h3>Concept to Response</h3><p>Industry-partnered ML project with the Social Research Centre predicting survey responses across population segments. Prepared question and segment features and built a Naive Bayes baseline for later NLP approaches.</p><div class="tags"><span>Python</span><span>pandas</span><span>NLP</span></div></div><div class="lab">University project</div></div>
+    <div class="row"><div class="meta">Jun – Aug 2025</div><div><h3>Document comparison tool</h3><p>Vue 3 frontend for Word/PDF text extraction, difference detection and visual highlighting, plus a Python pipeline that standardises institution names via an LLM API.</p><div class="tags"><span>Vue 3</span><span>Python</span><span>LLM API</span></div></div><div class="lab">Internal project</div></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2><p class="sub">Where the work above came from.</p>
+  <div class="timeline">
+    <div class="t"><small>Aug 2026 – present</small><h3>Neural Craft Labs — AI &amp; Engineering Intern</h3><p>RAG and regression prototypes, a Next.js site for a computer-vision product, and healthcare workforce rostering and demand-forecasting tools for hospital services.</p></div>
+    <div class="t"><small>May 2026 – Aug 2026</small><h3>Web Culture — Web Development Intern</h3><p>Maintained about 14 client WordPress sites and rebuilt pages in Elementor.</p></div>
+    <div class="t"><small>Jun 2025 – Aug 2025</small><h3>Computer Network Information Center, CAS — AI &amp; Data Analysis Intern</h3><p>Frontend and data-cleaning work for document review.</p></div>
+    <div class="t"><small>Jul 2024 – Nov 2026</small><h3>Australian National University — Master of Computing</h3></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2><p class="sub">&nbsp;</p>
+  <div class="skills">
+    <div><h4>Languages</h4><p>Python, TypeScript, JavaScript, Java, SQL, HTML, CSS</p></div>
+    <div><h4>ML &amp; data</h4><p>pandas, NumPy, scikit-learn, XGBoost, model evaluation</p></div>
+    <div><h4>GenAI &amp; RAG</h4><p>Ollama, Gemma 3, EmbeddingGemma, ChromaDB, BM25, hybrid retrieval, Streamlit</p></div>
+    <div><h4>Web</h4><p>Next.js, React, React Native, Vue 3, WordPress, WPGraphQL</p></div>
+    <div><h4>Tools &amp; cloud</h4><p>Git, GitHub, Vercel, Cloudflare Pages, Azure (AZ-900), Alibaba Cloud</p></div>
+    <div><h4>Languages spoken</h4><p>Mandarin (native), English (professional)</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Xinran (Rita) Tian</div></footer>
+<script>
+document.querySelectorAll('[data-gallery]').forEach(function(g){
+  var panes=g.querySelectorAll('.pane'),btns=g.querySelectorAll('.gallery button');
+  btns.forEach(function(b,n){b.onclick=function(){
+    panes.forEach(function(p,i){p.classList.toggle('on',i===n)});
+    btns.forEach(function(x,i){x.classList.toggle('active',i===n)});
+  }});
+});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.cshot').forEach(function(c){
+  var base=+c.dataset.tilt;
+  c.onpointermove=function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='rotate('+(base+x*2)+'deg) rotateX('+(-y*7)+'deg) rotateY('+(x*7)+'deg) translateY(-4px)'};
+  c.onpointerleave=function(){c.style.transform='rotate('+base+'deg)'};
+});
+</script>
+</body>
+</html>

@@ -57,6 +57,11 @@ nav a{text-decoration:none}nav a:hover{color:var(--head)}
 @keyframes float{50%{transform:translateY(-9px)}}
 @keyframes blob{to{border-radius:54% 46% 62% 38%/44% 60% 40% 56%;transform:rotate(4deg)}}
 
+.marquee{overflow:hidden;padding:13px 0;border-block:1px solid var(--line);background:#fff;white-space:nowrap}
+.track{display:inline-block;min-width:max-content;color:#848b98;font-size:12px;letter-spacing:.04em;animation:tick 30s linear infinite}
+.track span{margin-right:34px}
+.track b{color:#626ddd;font-weight:500}
+@keyframes tick{to{transform:translateX(-50%)}}
 section{padding:64px 0}
 h2{font-size:34px;letter-spacing:-.03em;margin:0 0 6px;color:var(--head);font-weight:560}
 .sub{color:var(--muted);margin:0 0 36px}
@@ -137,7 +142,7 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
   .row{grid-template-columns:1fr;gap:6px}
   nav ul{gap:14px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.blob,.float{animation:none}*,*:before,*:after{transition:none!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.blob,.float,.track{animation:none}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
@@ -165,6 +170,8 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);f
     <span class="float b">5 featured builds</span>
   </div>
 </div></header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span><b>Python</b></span><span>TypeScript</span><span>React</span><span>Next.js</span><span>React Native</span><span>Vue 3</span><span>Ollama</span><span>Chroma</span><span>XGBoost</span><span>scikit-learn</span><span>Streamlit</span><span>WordPress</span><span><b>Python</b></span><span>TypeScript</span><span>React</span><span>Next.js</span><span>React Native</span><span>Vue 3</span><span>Ollama</span><span>Chroma</span><span>XGBoost</span><span>scikit-learn</span><span>Streamlit</span><span>WordPress</span></div></div>
 
 <section id="work"><div class="wrap">
   <h2>Selected work</h2>
